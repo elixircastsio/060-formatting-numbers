@@ -1,0 +1,22 @@
+<h2>Vinyl Record Store</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Albums for sale</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= for album <- @albums do %>
+      <tr>
+        <td><%= album.title %> by <%= album.artist %></td>
+        <td><%= cents_to_dollars(album.price) %></td>
+        <td>
+          <%= link "show", to: album_path(@conn, :show, album) %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
